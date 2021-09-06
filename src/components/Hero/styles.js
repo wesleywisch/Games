@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HeroContainer = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   max-height: 68.75rem; // 1100px
   position: relative;
