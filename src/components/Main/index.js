@@ -21,7 +21,7 @@ export function Main() {
   ];
 
   async function handleCallApi(){
-    await Api.get('/games').then(response => console.log(response));
+    await Api.get('/games').then(response => console.log(response.data));
   }
 
   function handleOpenContainer(container, type) {
@@ -48,7 +48,6 @@ export function Main() {
         {state && state.hasOwnProperty('Platform') && <MainContentItem><h1>Platform</h1></MainContentItem>}
         {state && state.hasOwnProperty('Specific game') && <MainContentItem><h1>Specific game</h1></MainContentItem>}
       </MainContent>
-      {/* <button onClick={handleCallApi}>Chamada Api</button> */}
     </MainContainer>
   );
 }
