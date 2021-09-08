@@ -2,15 +2,16 @@ import styled from "styled-components";
 
 export const MainContainer = styled.section`
   width: 100%;
-  height: 800px;
-  background-color: #333;
-  max-width: 1600px;
+  height: 1000px;
+  background-color: #333; 
+  max-width: 1800px;
   margin: 3rem auto;
   display: flex;
+  overflow-y: auto;
 `;
 
 export const MainSidebar = styled.div`
-  width: 20%;
+  width: 15%;
   height: 100%;
   background-color: #333ccc;
 `;
@@ -35,8 +36,11 @@ export const MainSidebarItem = styled.button`
 `;
 
 export const MainContent = styled.div`
+  margin: 0 auto;
   width: 80%;
   height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 `;
 
 export const MainContentItem = styled.div``;
