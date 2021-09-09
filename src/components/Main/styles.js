@@ -3,17 +3,18 @@ import styled from "styled-components";
 export const MainContainer = styled.section`
   width: 100%;
   height: 1000px;
-  background-color: #333; 
+  background-color: #565264; 
   max-width: 1800px;
   margin: 3rem auto;
   display: flex;
-  overflow-y: auto;
+  border-radius: 0.8rem;
 `;
 
 export const MainSidebar = styled.div`
+  border-radius: 0.8rem 0 0 0.8rem;
   width: 15%;
   height: 100%;
-  background-color: #333ccc;
+  background-color: #49516F;
 `;
 
 export const MainSidebarContent = styled.div`
@@ -36,8 +37,9 @@ export const MainSidebarItem = styled.button`
 `;
 
 export const MainContent = styled.div`
+  overflow-y: auto;
   margin: 0 auto;
-  width: 80%;
+  width: 85%;
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
