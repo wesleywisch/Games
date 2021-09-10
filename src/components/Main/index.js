@@ -30,31 +30,33 @@ export function Main() {
     if (!storage) {
       const response = await Api.get('/games');
 
-      localStorage.setItem('@api', response.data);
-
+      localStorage.setItem('@api', JSON.stringify(response.data));
+      console.log(response.data);
       setApi(response.data);
     }
 
-    setApi(storage);
+    setApi(JSON.parse(storage));
   }
 
-  function handleOpenContainer(container, type) {
+  function handleOpenContainer(container) {
     setState({ [container]: container });
   }
 
   async function handleSpecificGame(id) {
     const storage = localStorage.getItem('@specific');
 
-    if (!storage) {
+    const verifyIdApi = api.filter(api => api.id === id);
+
+    const verifyIdStorage = storage !== verifyIdApi
+
+    if (verifyIdStorage) {
       const response = await Api.get(`/game?id=${id}`);
 
-      localStorage.setItem('@specific', response.data);
+      localStorage.setItem('@specific', JSON.stringify(response.data));
 
-      setSpecificGame(response.data);
       setState({ 'Specific game': 'Specific game' })
+      setSpecificGame(response.data);
     }
-
-    setSpecificGame(storage);
   }
 
   useEffect(() => {
