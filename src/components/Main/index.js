@@ -11,6 +11,7 @@ import {
   MainSidebarItem,
   MainContent,
   MainContentItem,
+  MainContentTwo,
 } from './styles';
 
 export function Main() {
@@ -54,14 +55,28 @@ export function Main() {
 
       localStorage.setItem('@specific', JSON.stringify(response.data));
 
-      setState({ 'Specific game': 'Specific game' })
       setSpecificGame(response.data);
+      setState({ 'Specific game': 'Specific game' })
     }
   }
 
   useEffect(() => {
     handleCallApi();
   }, [])
+
+  let {
+    title,
+    thumbnail,
+    short_description,
+    description,
+    game_url,
+    genre,
+    platform,
+    developer,
+    release_date,
+    minimum_system_requirements,
+    screenshots,
+  } = specificGame;
 
   return (
     <MainContainer>
@@ -79,26 +94,42 @@ export function Main() {
         </MainSidebarContent>
       </MainSidebar>
       <MainContent>
-        {state && state.hasOwnProperty('All') &&
-          api.map((item, key) => (
-            <Card
-              key={key}
-              id={item.id}
-              handleSpecificGame={handleSpecificGame}
-              title={item.title}
-              thumbnail={item.thumbnail}
-              short_description={item.short_description}
-              game_url={item.game_url}
-              genre={item.genre}
-              platform={item.platform}
-              developer={item.developer}
-              release_date={item.release_date}
-            />
-          ))}
+        <MainContentTwo>
+          {state && state.hasOwnProperty('All') &&
+            api.map((item, key) => (
+              <Card
+                key={key}
+                id={item.id}
+                handleSpecificGame={handleSpecificGame}
+                title={item.title}
+                thumbnail={item.thumbnail}
+                short_description={item.short_description}
+                game_url={item.game_url}
+                genre={item.genre}
+                platform={item.platform}
+                developer={item.developer}
+                release_date={item.release_date}
+              />
+            ))}
+        </MainContentTwo>
 
         {state && state.hasOwnProperty('Platform') && <MainContentItem><h1>Platform</h1></MainContentItem>}
 
-        {state && state.hasOwnProperty('Specific game') && <CardSpecificGame />}
+        {state && state.hasOwnProperty('Specific game') &&
+          <CardSpecificGame
+            title={title}
+            thumbnail={thumbnail}
+            short_description={short_description}
+            description={description}
+            game_url={game_url}
+            genre={genre}
+            platform={platform}
+            developer={developer}
+            release_date={release_date}
+            minimum_system_requirements={[minimum_system_requirements]}
+            screenshots={screenshots}
+          />
+        }
       </MainContent>
     </MainContainer>
   );

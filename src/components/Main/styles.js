@@ -15,6 +15,7 @@ export const MainSidebar = styled.div`
   width: 15%;
   height: 100%;
   background-color: #49516F;
+  box-shadow: 1px 5px 21px 5px rgba(0,0,0,0.74);
 `;
 
 export const MainSidebarContent = styled.div`
@@ -41,6 +42,9 @@ export const MainContent = styled.div`
   margin: 0 auto;
   width: 85%;
   height: 100%;
+`;
+
+export const MainContentTwo = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 `;

@@ -6,6 +6,7 @@ export const CardContainer = styled.div`
   width: 100%;
   background-color: #282D3E;
   border-radius: 1rem;
+  box-shadow: 1px 5px 21px 2px rgba(255,255,255,0.12);
 
   div{
     padding: 10px;
