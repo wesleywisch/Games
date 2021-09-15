@@ -115,8 +115,9 @@ export function Main() {
 
         {state && state.hasOwnProperty('Platform') && <MainContentItem><h1>Platform</h1></MainContentItem>}
 
-        {state && state.hasOwnProperty('Specific game') &&
+        {state && state.hasOwnProperty('Specific game') && specificGame !== 0 &&
           <CardSpecificGame
+            key={title}
             title={title}
             thumbnail={thumbnail}
             short_description={short_description}
