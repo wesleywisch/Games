@@ -8,6 +8,18 @@ export const CardContainer = styled.div`
   background-color: #565264;
   overflow-y: auto;
 
+  .header{
+    display: flex;
+
+    @media screen and (max-width: 850px) {
+      display: block;
+    }
+  }
+
+  .dados{
+    margin: 2rem 0;
+  }
+
   .swiperSlides{
     max-width: 600px;
     height: 300px;
@@ -18,22 +30,6 @@ export const CardContainer = styled.div`
     max-width: 600px;
     width: 100%;
     height: 300px;
-  }
-
-  .header{
-    display: flex;
-
-    h4{
-      color: #fff;
-    }
-
-    @media screen and (max-width: 850px) {
-      display: block;
-    }
-  }
-
-  .dados{
-    margin: 2rem 0;
   }
 
   ::-webkit-scrollbar{
@@ -108,19 +104,21 @@ export const CardReleaseData = styled.p`
 
 export const CardSystemContainer = styled.div`
   color: #ccc;
+
+  h4{
+    color: var(--white);
+  }
 `;
 
-export const CardMinimumSystem = styled.div``;
+export const CardOs = styled.p``;
 
-export const CardOs = styled.div``;
+export const CardProcessor = styled.p``;
 
-export const CardProcessor = styled.div``;
+export const CardMemory = styled.p``;
 
-export const CardMemory = styled.div``;
+export const CardGraphics = styled.p``;
 
-export const CardGraphics = styled.div``;
-
-export const CardStorage = styled.div``;
+export const CardStorage = styled.p``;
 
 export const CardGame = styled.button`
   width: 200px;

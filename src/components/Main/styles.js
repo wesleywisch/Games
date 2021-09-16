@@ -51,7 +51,9 @@ export const MainSidebarContent = styled.div`
   flex-direction: column;
 
   .active{
-    background-color: cyan;
+    background-color: #282D3E;
+    box-shadow: 1px 5px 21px 2px rgba(0,0,0,0.52);
+    color: var(--white);
   }
 
   @media screen and (max-width: 850px) {
@@ -114,7 +116,7 @@ export const MainContent = styled.div`
   }
 `;
 
-export const MainContentTwo = styled.div`
+export const MainContentApiAll = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 
@@ -126,8 +128,6 @@ export const MainContentTwo = styled.div`
     grid-template-columns: 1fr;
   }
 `;
-
-export const MainContentItem = styled.div``;
 
 export const PlatformContainer = styled.section``;
 
@@ -150,6 +150,11 @@ export const PlatformHeader = styled.div`
     cursor: pointer;
     background-color: #565264;
     color: #ccc;
+    transition: 0.3s;
+
+    &:hover{
+      transform: translateY(-2px)
+    }
   }
 
   div select{
