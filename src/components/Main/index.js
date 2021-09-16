@@ -10,7 +10,9 @@ import {
   MainSidebarContent,
   MainSidebarItem,
   MainContent,
-  MainContentItem,
+  PlatformHeader,
+  PlatformContainer,
+  PlatformApi,
   MainContentTwo,
 } from './styles';
 
@@ -18,6 +20,9 @@ export function Main() {
   const [state, setState] = useState({ 'All': 'All' });
   const [specificGame, setSpecificGame] = useState([])
   const [api, setApi] = useState([]);
+  const [options, setOptions] = useState('all');
+  const [apiPlatform, setApiPlatform] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const buttons = [
     { id: 1, name: 'All' },
@@ -32,11 +37,18 @@ export function Main() {
       const response = await Api.get('/games');
 
       localStorage.setItem('@api', JSON.stringify(response.data));
-      console.log(response.data);
       setApi(response.data);
     }
 
     setApi(JSON.parse(storage));
+  }
+
+  async function handleCallApiPlataform(e) {
+    e.preventDefault();
+
+    const response = await Api.get(`/games?platform=${options}`);
+
+    setApiPlatform(response.data);
   }
 
   function handleOpenContainer(container) {
@@ -78,6 +90,9 @@ export function Main() {
     screenshots,
   } = specificGame;
 
+  console.log(options);
+  console.log(apiPlatform);
+
   return (
     <MainContainer>
       <MainSidebar>
@@ -113,9 +128,40 @@ export function Main() {
             ))}
         </MainContentTwo>
 
-        {state && state.hasOwnProperty('Platform') && <MainContentItem><h1>Platform</h1></MainContentItem>}
+        {state && state.hasOwnProperty('Platform') &&
+          <PlatformContainer>
+            <PlatformHeader>
+              <h4>Selecione a sua plataforma</h4>
+              <div>
+                <select value={options} onChange={e => setOptions(e.target.value)}>
+                  <option>all</option>
+                  <option>pc</option>
+                  <option>browser</option>
+                </select>
+                <button onClick={handleCallApiPlataform}>Pesquisar</button>
+              </div>
+            </PlatformHeader>
+            <PlatformApi>
+              {apiPlatform.map((item, key) => (
+                <Card
+                  key={key}
+                  id={item.id}
+                  handleSpecificGame={handleSpecificGame}
+                  title={item.title}
+                  thumbnail={item.thumbnail}
+                  short_description={item.short_description}
+                  game_url={item.game_url}
+                  genre={item.genre}
+                  platform={item.platform}
+                  developer={item.developer}
+                  release_date={item.release_date}
+                />
+              ))}
+            </PlatformApi>
+          </PlatformContainer>
+        }
 
-        {state && state.hasOwnProperty('Specific game') && specificGame !== 0 &&
+        {state && state.hasOwnProperty('Specific game') &&
           <CardSpecificGame
             key={title}
             title={title}

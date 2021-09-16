@@ -23,6 +23,10 @@ export const CardContainer = styled.div`
   .header{
     display: flex;
 
+    h4{
+      color: #fff;
+    }
+
     @media screen and (max-width: 850px) {
       display: block;
     }
@@ -68,30 +72,43 @@ export const CardThumbnail = styled.img`
 export const CardTitle = styled.h3`
   text-align: center;
   margin-bottom: 0.4rem;
+  color: #fff;
 `;
 
 export const CardShortDescription = styled.p`
   text-align: center;
   margin-bottom: 1rem;
+  color: #fff;
 `;
 
 export const CardDescription = styled.p`
   margin-right: 60px;
+  color: #eee;
 
   @media screen and (max-width: 850px) {
     margin: 1rem auto;
   }
 `;
 
-export const CardPlatform = styled.p``;
+export const CardPlatform = styled.p`
+  color: #eee;
+`;
 
-export const CardGenre = styled.p``;
+export const CardGenre = styled.p`
+  color: #eee;
+`;
 
-export const CardDeveloper = styled.p``;
+export const CardDeveloper = styled.p`
+  color: #eee;
+`;
 
-export const CardReleaseData = styled.p``;
+export const CardReleaseData = styled.p`
+  color: #eee;
+`;
 
-export const CardSystemContainer = styled.div``;
+export const CardSystemContainer = styled.div`
+  color: #ccc;
+`;
 
 export const CardMinimumSystem = styled.div``;
 

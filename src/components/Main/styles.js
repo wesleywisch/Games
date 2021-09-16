@@ -128,3 +128,49 @@ export const MainContentTwo = styled.div`
 `;
 
 export const MainContentItem = styled.div``;
+
+export const PlatformContainer = styled.section``;
+
+export const PlatformHeader = styled.div`
+  border-radius: 0 0.8rem 0 0;
+  background-color: #282D3E;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #eee;
+
+  div button{
+    margin-left: 1rem;
+    width: 120px;
+    padding: 0.2rem;
+    border-radius: 0.8rem;
+    border: none;
+    cursor: pointer;
+    background-color: #565264;
+    color: #ccc;
+  }
+
+  div select{
+    outline: none;
+    width: 120px;
+    padding: 0.2rem;
+    background-color: #565264;
+    border: none;
+    color: #ccc;
+  }
+`;
+
+export const PlatformApi = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  @media screen and (max-width: 1660px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media screen and (max-width: 1200px) {
+    grid-template-columns: 1fr;
+  }
+`;
